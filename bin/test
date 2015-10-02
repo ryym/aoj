@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+pushd `dirname $0`/../ > /dev/null
+
+if [ ! -f .target ]; then
+    echo ERROR: Please specify the test target by bin/cht.
+    exit 1
+fi
+
+program="${1:-$(cat .target)}"
+ext=${program##*.}
+
+case $ext in
+    cpp)
+        c++  -o bin/a.out $program
+        if [ $? -eq 1 ]; then
+            exit 1
+        fi
+        bin/a.out -
+        ;;
+    rb)
+        ruby $program -
+        ;;
+    *)
+        echo Unsupported file!
+        exit 1
+        ;;
+esac
+
+popd > /dev/null

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Generate a template file of test script.
+
+program=$1
+test_sh="${program%%.*}.t.sh"
+
+if [ -e $test_sh ]; then
+    echo 'The test file already exists. Remove this one?(Y/n)'
+    read ans
+    test "$ans" == 'n' && exit 0 || rm -f $test_sh
+fi
+
+`dirname $0`/cht $program
+
+cat <<-'_EOF_' > $test_sh
+#!/usr/bin/env bash
+
+$1 $2 <<-EOF
+EOF
+echo ------
+_EOF_
+
+chmod 755 $test_sh
