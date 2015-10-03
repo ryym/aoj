@@ -6,52 +6,39 @@
 
 
 #include <iostream>
+#include <cstdio>
+#include <vector>
 using namespace std;
 
-void trace(int N, int A[]) {
-    if (N <= 0) return;
-    cout << A[0];
-    for (int i = 1; i < N; i++)
-        cout << " " << A[i];
-    cout << endl;
-}
-
-int intervalSize(int max) {
-    int n = 1;
+void intervals(int max, vector<int>& G) {
     int g = 1;
-    while ( (g = 3 * g + 1) <= max) n++;
-    return n;
-}
-
-void intervals(int gn, int gs[]) {
-    if (gn <= 0) return;
-    gs[gn - 1] = 1;
-    for (int i = gn - 1; i > 0; i--) {
-        gs[i - 1] = 3 * gs[i] + 1;
+    while (g <= max) {
+        G.push_back(g);
+        g = 3 * g + 1;
     }
 }
 
 int insertionSort(int N, int A[], int g) {
-    int n_swapped = 0;
+    int nSwapped = 0;
     for (int i = g; i < N; i++) {
         int v = A[i];
         int iBef = i - g;
         while (0 <= iBef && v < A[iBef]) {
             A[iBef + g] = A[iBef];
             iBef -= g;
-            n_swapped++;
+            nSwapped++;
         }
         A[iBef + g] = v;
     }
-    return n_swapped;
+    return nSwapped;
 }
 
-int shellSort(int N, int A[], int gn, int gs[]) {
-    int n_swapped = 0;
-    for (int i = 0; i < gn; i++) {
-        n_swapped += insertionSort(N, A, gs[i]);
+int shellSort(int N, int A[], vector<int>& G) {
+    int nSwapped = 0;
+    for (int i = G.size() - 1; i >= 0; i--) {
+        nSwapped += insertionSort(N, A, G[i]);
     }
-    return n_swapped;
+    return nSwapped;
 }
 
 /* ALDS1_2_D: Shell Sort */
@@ -61,20 +48,21 @@ int main() {
 
     int A[N];
     for (int i = 0; i < N; i++)
-        cin >> A[i];
+        scanf("%d\n", &A[i]);
 
-    int gn = intervalSize(N);
-    int gs[gn];
-    intervals(gn, gs);
+    vector<int> G;
+    intervals(N, G);
 
-    int n_swapped = shellSort(N, A, gn, gs);
+    int nSwapped = shellSort(N, A, G);
 
-    // Output results.
-    cout << gn << endl;
-    trace(gn, gs);
-    cout << n_swapped << endl;
+    cout << G.size() << endl << G.back();
+    for (int i = G.size() - 2; i >= 0; i--)
+        printf(" %d", G[i]);
+    cout << endl;
+
+    cout << nSwapped << endl;
     for (int i = 0; i < N; i++)
-        cout << A[i] << endl;
+        printf("%d\n", A[i]);
 
     return 0;
 }
