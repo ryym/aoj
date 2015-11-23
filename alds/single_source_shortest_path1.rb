@@ -3,72 +3,52 @@
 # ダイクストラのアルゴリズムを用いて、始点sからの最短経路木を
 # 構築する。
 
-MAX_COST = Float::INFINITY
-
-module State
-  UNKNOWN = 0
-  FOUND   = 1
-  REACHED = 2
-end
-
-def calc_min_costs_from(v_start, costs)
-  vert_state = Struct.new :id, :cost_from_start, :state do
-    define_method :cost_to do |v_to|
-      costs[id][v_to.id]
-    end
-
-    def connected_to?(v_to)
-      0 <= cost_to(v_to)
-    end
-
-    def is?(state)
-      self.state == state
-    end
-
-    def cost_from_start_through(other_v)
-      other_v.cost_from_start + other_v.cost_to(self)
-    end
+class Graph
+  def initialize(n_v)
+    @n_v   = n_v
+    @costs = Array.new(n_v) { Hash.new }
   end
 
-  n_vertexes  = costs.size
-  vert_states = n_vertexes.times.map do |id|
-    if id == v_start
-      vert_state.new id, 0, State::FOUND
-    else
-      vert_state.new id, MAX_COST, State::UNKNOWN
-    end
+  def connect(v_from, v_to, cost)
+    @costs[v_from][v_to] = cost
   end
 
-  while true
-    v_from = vert_states.
-      select { |v| v.is? State::FOUND }.
-      min_by { |v| v.cost_from_start }
+  def calc_min_costs_from(v_start)
+    costs_from_start = Array.new @n_v, Float::INFINITY
+    visiting = {}
+    costs_from_start[v_start] = 0
+    visiting[v_start] = 0
 
-    break if v_from.nil?
-    v_from.state = State::REACHED
+    while visiting.any?
+      v_from, _ = visiting.min_by do |v, _|
+        costs_from_start[v]
+      end
+      visiting.delete v_from
 
-    vert_states.each do |v_to|
-      next if v_to.is?(State::REACHED) or not v_from.connected_to?(v_to)
-      through_cost = v_to.cost_from_start_through v_from
-      if through_cost < v_to.cost_from_start
-        v_to.cost_from_start = through_cost
-        v_to.state = State::FOUND
+      @costs[v_from].each do |v_to, cost|
+        through_cost = costs_from_start[v_from] + cost
+        if through_cost < costs_from_start[v_to]
+          costs_from_start[v_to] = through_cost
+          visiting[v_to] = true
+        end
       end
     end
-  end
 
-  vert_states.map { |v| v.cost_from_start }
+    costs_from_start
+  end
 end
 
-n_vertexes = gets.to_i
-costs      = Array.new(n_vertexes) { Array.new(n_vertexes, -1) }
-n_vertexes.times do
-  v_from, n_degrees, *inputs = gets.split.map &:to_i
-  1.step(n_degrees * 2, 2) do |i|
+# Read input.
+n_v   = gets.to_i
+graph = Graph.new(n_v)
+n_v.times do
+  v_from, n_degs, *inputs = gets.split.map &:to_i
+  1.step(n_degs * 2, 2) do |i|
     v_to, cost = inputs[i - 1], inputs[i]
-    costs[v_from][v_to] = cost
+    graph.connect v_from, v_to, cost
   end
 end
 
-min_costs = calc_min_costs_from(0, costs)
-puts min_costs.map.with_index{ |cost, v| "#{v} #{cost}" }
+graph.calc_min_costs_from(0).each_with_index do |cost, idx|
+  puts "#{idx} #{cost}"
+end
