@@ -43,8 +43,7 @@ n_v   = gets.to_i
 graph = Graph.new(n_v)
 n_v.times do
   v_from, n_degs, *inputs = gets.split.map &:to_i
-  1.step(n_degs * 2, 2) do |i|
-    v_to, cost = inputs[i - 1], inputs[i]
+  inputs.each_slice(2) do |v_to, cost|
     graph.connect v_from, v_to, cost
   end
 end
