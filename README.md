@@ -10,3 +10,5 @@
 | --- | ----------- |
 |ITP  | [Introduction to Programming](http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=ITP1) |
 |ALDS | [Algorithms and Data Structures](http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=ALDS1) |
+|DSL  | [Data Structures](http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=DSL) |
+
