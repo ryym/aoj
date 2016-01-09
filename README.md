@@ -6,9 +6,15 @@
 
 #### Directories
 
-|Name | Contents    |
-| --- | ----------- |
-|ITP  | [Introduction to Programming](http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=ITP1) |
-|ALDS | [Algorithms and Data Structures](http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=ALDS1) |
-|DSL  | [Data Structures](http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=DSL) |
+| Name | Contents    |
+| ---- | ----------- |
+|[ITP][github-itp]   | [Introduction to Programming][aoj-itp]     |
+|[ALDS][github-alds] | [Algorithms and Data Structures][aoj-alds] |
+|[DSL][github-dsl]   | [Data Structures][aoj-dsl]                 |
 
+[github-itp]: https://github.com/ryym/aoj/tree/master/itp
+[github-alds]: https://github.com/ryym/aoj/tree/master/alds
+[github-dsl]: https://github.com/ryym/aoj/tree/master/dsl
+[aoj-itp]: http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=ITP1
+[aoj-alds]: http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=ALDS1
+[aoj-dsl]: http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=DSL
