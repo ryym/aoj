@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+pushd `dirname $0`/../ > /dev/null
+
+program="${1:-$(cat .target)}"
+ext=${program##*.}
+
+case $ext in
+    cpp)
+        .compiled/cpp -
+        ;;
+    rb)
+        ruby $program -
+        ;;
+    *)
+        echo Unsupported file!
+        exit 1
+        ;;
+esac
+
+popd > /dev/null

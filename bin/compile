@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+pushd `dirname $0`/../ > /dev/null
+
+program="${1:-$(cat .target)}"
+ext=${program##*.}
+
+case $ext in
+    cpp)
+        c++ -o .compiled/cpp $program
+        succeeded=$?
+        ;;
+    *)
+        ;;
+esac
+
+popd > /dev/null
+
+exit ${succeeded:-0}
