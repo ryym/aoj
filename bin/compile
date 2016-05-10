@@ -8,11 +8,15 @@ ext=${program##*.}
 case $ext in
     cpp)
         c++ -o .compiled/cpp $program
-        succeeded=$?
+        ;;
+    scala)
+        scalac -d .compiled $program
         ;;
     *)
         ;;
 esac
+
+succeeded=$?
 
 popd > /dev/null
 

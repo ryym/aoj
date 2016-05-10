@@ -12,6 +12,9 @@ case $ext in
     rb)
         ruby $program -
         ;;
+    scala)
+        scala -cp .compiled Main
+        ;;
     *)
         echo Unsupported file!
         exit 1
