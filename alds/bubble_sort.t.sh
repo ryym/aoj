@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-$1 $2 $2 <<-EOF
-EOF
-echo ------
-
 $1 $2 <<-EOF
 5
 5 3 2 4 1
