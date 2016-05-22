@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 target=$(cat ./.target)
-testfile="${target%%.*}.t.sh"
 target=${1:-$target}
+testfile="${target%%.*}.t.sh"
 
 if [ ! -f .target ]; then
     echo ERROR: Please specify the test target by bin/cht.
