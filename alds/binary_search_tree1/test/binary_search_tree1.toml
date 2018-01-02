@@ -1,0 +1,90 @@
+[[test]]
+in = """
+2
+insert 1
+print
+"""
+out = """
+ 1
+ 1
+"""
+
+[[test]]
+in = """
+4
+insert 1
+insert 2
+insert 3
+print
+"""
+out = """
+ 1 2 3
+ 1 2 3
+"""
+
+[[test]]
+in = """
+10
+insert 10
+insert 5
+insert 2
+print
+insert 6
+print
+insert 8
+insert 1
+insert 22
+print
+"""
+out = """
+ 2 5 10
+ 10 5 2
+ 2 5 6 10
+ 10 5 2 6
+ 1 2 5 6 8 10 22
+ 10 5 2 1 6 8 22
+"""
+
+[[test]]
+in = """
+8
+insert 30
+insert 88
+insert 12
+insert 1
+insert 20
+insert 17
+insert 25
+print
+"""
+out = """
+ 1 12 17 20 25 30 88
+ 30 12 1 20 17 25 88
+"""
+
+[[test]]
+in = """
+16
+insert 20
+insert 19
+insert 2000000000
+print
+insert 61
+insert -51
+insert 18
+insert 5
+insert 3
+insert 7
+insert 30
+insert 25
+insert 40
+insert 41
+insert 42
+print
+"""
+out = """
+ 19 20 2000000000
+ 20 19 2000000000
+ -51 3 5 7 18 19 20 25 30 40 41 42 61 2000000000
+ 20 19 -51 18 5 3 7 2000000000 61 30 25 40 41 42
+"""

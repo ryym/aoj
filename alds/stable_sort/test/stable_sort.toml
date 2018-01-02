@@ -1,0 +1,23 @@
+[[test]]
+in = """
+5
+H4 C9 S4 D2 C3
+"""
+out = """
+D2 C3 H4 S4 C9
+Stable
+D2 C3 S4 H4 C9
+Not stable
+"""
+
+[[test]]
+in = """
+2
+S1 H1
+"""
+out = """
+S1 H1
+Stable
+S1 H1
+Stable
+"""

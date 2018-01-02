@@ -1,0 +1,39 @@
+[[test]]
+in = """
+abcde
+"""
+out = """
+ABCDE
+"""
+
+[[test]]
+in = """
+ABCDE
+"""
+out = """
+abcde
+"""
+
+[[test]]
+in = """
+fAIR, LATER, OCCASIONALLY CLOUDY.
+"""
+out = """
+Fair, later, occasionally cloudy.
+"""
+
+[[test]]
+in = """
+.,;:+*!"#$%&'()[]{}^/_ABCdef
+"""
+out = """
+.,;:+*!"#$%&'()[]{}^/_abcDEF
+"""
+
+[[test]]
+in = """
+0123456789WXyz
+"""
+out = """
+0123456789wxYZ
+"""

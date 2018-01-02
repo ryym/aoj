@@ -1,10 +1,10 @@
-### Aizu Online Jadge
+# Aizu Online Jadge
 
 [Contest page](http://judge.u-aizu.ac.jp/onlinejudge/index.jsp)
 
 [参考書 - プログラミングコンテスト攻略のためのアルゴリズムとデータ構造](http://book.mynavi.jp/support/pc/5295/)
 
-#### Directories
+## Directories
 
 | Name | Contents    |
 | ---- | ----------- |
@@ -18,3 +18,7 @@
 [aoj-itp]: http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=ITP1
 [aoj-alds]: http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=ALDS1
 [aoj-dsl]: http://judge.u-aizu.ac.jp/onlinejudge/topic.jsp?cid=DSL
+
+Source files and tests are managed by [ryym/slv][ryym/slv].
+
+[ryym/slv]: https://github.com/ryym/slv

@@ -1,0 +1,64 @@
+[[test]]
+in = """
+1
+abc zzz
+"""
+out = """
+0 3
+"""
+
+[[test]]
+in = """
+1
+abc abca
+"""
+out = """
+0 3
+"""
+
+[[test]]
+in = """
+1
+abcz abd
+"""
+out = """
+0 3
+"""
+
+[[test]]
+in = """
+1
+abca abca
+"""
+out = """
+1 1
+"""
+
+[[test]]
+in = """
+1
+a a
+"""
+out = """
+1 1
+"""
+
+[[test]]
+in = """
+3
+cat dog
+fish fish
+lion tiger
+"""
+out = """
+1 7
+"""
+
+[[test]]
+in = """
+1
+z abdeffg
+"""
+out = """
+3 0
+"""

@@ -1,0 +1,35 @@
+[[test]]
+in = """
+abcdef
+abc
+"""
+out = """
+Yes
+"""
+
+[[test]]
+in = """
+abcdef
+fab
+"""
+out = """
+Yes
+"""
+
+[[test]]
+in = """
+abcdef
+faz
+"""
+out = """
+No
+"""
+
+[[test]]
+in = """
+vanceknowledgetoad
+advance
+"""
+out = """
+Yes
+"""

@@ -1,0 +1,122 @@
+[[test]]
+in = """
+0
+"""
+out = """
+"""
+
+[[test]]
+in = """
+3
+insert 1
+insert 2
+insert 3
+"""
+out = """
+3 2 1
+"""
+
+[[test]]
+in = """
+5
+insert 1
+insert 2
+insert 3
+delete 2
+delete 3
+"""
+out = """
+1
+"""
+
+[[test]]
+in = """
+5
+insert 1
+insert 2
+insert 3
+deleteFirst
+deleteLast
+"""
+out = """
+2
+"""
+
+[[test]]
+in = """
+7
+insert 5
+insert 2
+insert 3
+insert 1
+delete 3
+insert 6
+delete 5
+"""
+out = """
+6 1 2
+"""
+
+[[test]]
+in = """
+9
+insert 5
+insert 2
+insert 3
+insert 1
+delete 3
+insert 6
+delete 5
+deleteFirst
+deleteLast
+"""
+out = """
+1
+"""
+
+[[test]]
+in = """
+39
+insert 1
+insert 2
+insert 1
+insert 1
+insert 1
+insert 2
+insert 2
+insert 1
+delete 2
+deleteLast
+deleteFirst
+insert 2
+insert 2
+insert 2
+insert 2
+insert 2
+insert 2
+insert 2
+insert 2
+insert 2
+insert 2
+deleteFirst
+deleteFirst
+delete 2
+delete 2
+deleteFirst
+delete 1
+insert 3
+insert 1
+insert 1
+delete 2
+delete 2
+delete 2
+deleteLast
+insert 4
+delete 2
+deleteLast
+deleteFirst
+delete 2
+"""
+out = """
+1 1 3 2 1
+"""

@@ -1,0 +1,51 @@
+[[test]]
+in = """
+test
+test test test
+END_OF_TEXT
+"""
+out = """
+3
+"""
+
+[[test]]
+in = """
+computer
+Nurtures computer scientists and highly-skilled computer engineers
+who will create and exploit "knowledge" for the new era.
+Provides an outstanding computer environment.
+END_OF_TEXT
+"""
+out = """
+3
+"""
+
+[[test]]
+in = """
+computer
+I am a hero!
+END_OF_TEXT
+"""
+out = """
+0
+"""
+
+[[test]]
+in = """
+computer
+END_OF_TEXT
+"""
+out = """
+0
+"""
+
+[[test]]
+in = """
+aizu
+Aizu x aizu AIZU aIzu aiZu a
+a i z u aiz a izu
+END_OF_TEXT
+"""
+out = """
+5
+"""

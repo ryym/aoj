@@ -1,0 +1,41 @@
+[[test]]
+in = """
+insert 5
+extract
+end
+"""
+out = """
+5
+"""
+
+[[test]]
+in = """
+insert 5
+insert 10
+insert 30
+insert 2
+extract
+end
+"""
+out = """
+30
+"""
+
+[[test]]
+in = """
+insert 8
+insert 2
+extract
+insert 10
+extract
+insert 11
+extract
+extract
+end
+"""
+out = """
+8
+10
+11
+2
+"""

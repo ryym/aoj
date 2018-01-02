@@ -1,0 +1,51 @@
+[[test]]
+in = """
+6
+D 3
+H 2
+D 1
+S 3
+D 2
+C 1
+"""
+out = """
+Not stable
+D 1
+C 1
+D 2
+H 2
+D 3
+S 3
+"""
+
+[[test]]
+in = """
+6
+D 6
+H 5
+D 4
+S 3
+D 2
+C 1
+"""
+out = """
+Stable
+C 1
+D 2
+S 3
+D 4
+H 5
+D 6
+"""
+
+[[test]]
+in = """
+2
+S 1
+H 1
+"""
+out = """
+Stable
+S 1
+H 1
+"""

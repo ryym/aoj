@@ -1,0 +1,63 @@
+[[test]]
+in = """
+abcdef
+1
+2
+-
+"""
+out = """
+cdefab
+"""
+
+[[test]]
+in = """
+aabc
+3
+1
+2
+1
+vwxyz
+2
+3
+4
+-
+"""
+out = """
+aabc
+xyzvw
+"""
+
+[[test]]
+in = """
+aabc
+0
+-
+"""
+out = """
+aabc
+"""
+
+[[test]]
+in = """
+abc
+3
+3
+3
+3
+-
+"""
+out = """
+abc
+"""
+
+[[test]]
+in = """
+abc
+2
+1
+1
+-
+"""
+out = """
+cab
+"""

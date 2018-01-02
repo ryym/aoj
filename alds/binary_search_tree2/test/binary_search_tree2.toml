@@ -1,0 +1,106 @@
+[[test]]
+in = """
+4
+insert 1
+insert 2
+insert 3
+print
+"""
+out = """
+ 1 2 3
+ 1 2 3
+"""
+
+[[test]]
+in = """
+10
+insert 10
+insert 5
+insert 2
+print
+insert 6
+print
+insert 8
+insert 1
+insert 22
+print
+"""
+out = """
+ 2 5 10
+ 10 5 2
+ 2 5 6 10
+ 10 5 2 6
+ 1 2 5 6 8 10 22
+ 10 5 2 1 6 8 22
+"""
+
+[[test]]
+in = """
+4
+find 1
+insert 1
+find 1
+print
+"""
+out = """
+no
+yes
+ 1
+ 1
+"""
+
+[[test]]
+in = """
+7
+insert -20
+insert -51
+insert -8
+find -8
+find -9
+find -20
+print
+"""
+out = """
+yes
+no
+yes
+ -51 -20 -8
+ -20 -51 -8
+"""
+
+[[test]]
+in = """
+10
+insert 30
+insert 88
+insert 12
+insert 1
+insert 20
+find 12
+insert 17
+insert 25
+find 16
+print
+"""
+out = """
+yes
+no
+ 1 12 17 20 25 30 88
+ 30 12 1 20 17 25 88
+"""
+
+[[test]]
+in = """
+5
+insert -2000000000
+insert 2000000000
+find -2000000000
+find 2000000000
+print
+"""
+out = """
+yes
+yes
+ -2000000000 2000000000
+ -2000000000 2000000000
+"""
