@@ -14,7 +14,19 @@
 
 # ALDS1_8_C: Binary Search Tree 3: Delete
 
+class NilNode
+  attr_reader :key
+  attr_accessor :parent, :left, :right
+
+  def initialize
+    @key = nil
+    @parent = @left = @right = self
+  end
+end
+
 class BinaryTree
+  NIL = NilNode.new
+
   def initialize
     @root = NIL
   end
@@ -110,7 +122,7 @@ class BinaryTree
         return if node == NIL
         node.set_parent self, :left
       end
-      
+
       def set_right(node)
         @right = node
         return if node == NIL
@@ -132,7 +144,7 @@ class BinaryTree
       def has_right?
         @right != NIL
       end
-      
+
       def minimum_leaf
         node = self
         node = node.left while node.left != NIL
@@ -140,15 +152,9 @@ class BinaryTree
       end
 
       protected
-        def set_parent(node, position)
-          @parent = node
-          @on = position
-        end
-    end
-
-    NIL = Node.new(nil).tap do |n|
-      [:parent, :left, :right].each do |name|
-        define_method(name) { self }
+      def set_parent(node, position)
+        @parent = node
+        @on = position
       end
     end
 end

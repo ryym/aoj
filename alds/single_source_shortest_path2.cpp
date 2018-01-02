@@ -16,11 +16,11 @@ static const int WHITE = 0;
 static const int BLACK = 2;
 
 vector<vert> adjs[MAX];
+int costs[MAX];
 
 void dijkstra(int n_v, int v_start) {
     priority_queue< vert, vector<vert>, greater<vert> > visitings;
     int color[MAX];
-    int costs[MAX];
 
     for (int i = 0; i < n_v; i++) {
         costs[i] = INFTY;

@@ -1,6 +1,18 @@
 # ALDS1_8_A: Binary Search Tree 1: Insert
 
 class BinaryTree
+  class NilNode
+    attr_reader :key
+    attr_accessor :left, :right
+
+    def initialize
+      @key = -1
+      @left = @right = self
+    end
+  end
+
+  NIL = NilNode.new
+
   class Node
     attr_reader :key
     attr_accessor :left, :right
@@ -10,8 +22,6 @@ class BinaryTree
       @left = @right = NIL
     end
   end
-
-  NIL = Node.new(-1)
 
   def initialize
     @root = NIL
