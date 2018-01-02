@@ -1,4 +1,4 @@
-# GRL1_C: All Pairs Shortest Path
+# GRL_1_C: All Pairs Shortest Path
 
 INF = 1 << 32
 

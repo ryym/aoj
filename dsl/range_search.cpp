@@ -1,4 +1,4 @@
-/* DSL2_C: Range Search (kD Tree) */
+/* DSL_2_C: Range Search (kD Tree) */
 
 #include <cstdio>
 #include <algorithm>

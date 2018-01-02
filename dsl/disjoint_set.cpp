@@ -1,4 +1,4 @@
-/* DSL1_A: Disjoint Set */
+/* DSL_1_A: Disjoint Set */
 
 // Solve using Union-Find Tree
 

@@ -1,3 +1,5 @@
+// ALDS1_12_B: Single Source Shortest Path 2
+
 /* Single Source Shortest Path 2 */
 
 // ダイクストラのアルゴリズムを、優先度付きキューによって高速化する。
