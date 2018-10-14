@@ -39,3 +39,35 @@ out = """
 11
 2
 """
+
+[[test]]
+in = """
+insert 8
+insert 7
+insert 2
+extract
+insert 19
+insert 10
+extract
+extract
+insert 8
+extract
+extract
+insert 3
+insert 4
+insert 1
+extract
+extract
+extract
+end
+"""
+out = """
+8
+19
+10
+8
+7
+4
+3
+2
+"""
